@@ -1,0 +1,170 @@
+public class Test7_MiscBranches extends java.lang.Object
+{
+    public int field;
+
+    public void <init>()
+    {
+        Test7_MiscBranches r0;
+
+        r0 := @this: Test7_MiscBranches;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+        return;
+    }
+
+    public int LiveCode(int)
+    {
+        Test7_MiscBranches r0;
+        int i0, i1, i3, i4, i5, $i6;
+        byte b2;
+        java.io.PrintStream $r1, $r2, $r3, $r4, $r5;
+
+        r0 := @this: Test7_MiscBranches;
+        i0 := @parameter0: int;
+        i1 = 5;
+        b2 = 4;
+        i3 = i0 / 0;
+        i4 = r0.<Test7_MiscBranches: int field>;
+        r0.<Test7_MiscBranches: int field> = b2;
+        if i1 != b2 goto label0;
+
+        $i6 = i1 + b2;
+        return $i6;
+
+     label0:
+        if i1 <= 0 goto label1;
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>("Decrement a!");
+        i1 = i1 - 1;
+        goto label0;
+
+     label1:
+        lookupswitch(b2)
+        {
+            case 0: goto label2;
+            case 1: goto label3;
+            default: goto label4;
+        };
+
+     label2:
+        $r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>("b is zero!");
+        goto label5;
+
+     label3:
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>("b is one!");
+        goto label5;
+
+     label4:
+        $r4 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r4.<java.io.PrintStream: void println(java.lang.String)>("b is > one!");
+
+     label5:
+        i5 = 0;
+
+     label6:
+        if i5 >= 3 goto label7;
+
+        $r5 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r5.<java.io.PrintStream: void println(java.lang.String)>("Entering for loop!");
+        i5 = i5 + 1;
+        goto label6;
+
+     label7:
+        return 4;
+    }
+
+    public int DeadCode(int)
+    {
+        Test7_MiscBranches r0;
+        int i0, i2, i3, i4;
+        byte b1;
+        java.io.PrintStream $r1, $r2, $r3, $r4, $r5;
+
+        r0 := @this: Test7_MiscBranches;
+        i0 := @parameter0: int;
+        b1 = 5;
+        i2 = 4;
+        i3 = i0 / 0;
+        if b1 != i2 goto label0;
+
+        return 1;
+
+     label0:
+        if i2 <= 0 goto label1;
+
+        $r1 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r1.<java.io.PrintStream: void println(java.lang.String)>("Decrement a!");
+        i2 = i2 - 1;
+        goto label0;
+
+     label1:
+        lookupswitch(i2)
+        {
+            case 0: goto label2;
+            case 1: goto label3;
+            default: goto label4;
+        };
+
+     label2:
+        $r2 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r2.<java.io.PrintStream: void println(java.lang.String)>("d is zero!");
+        goto label5;
+
+     label3:
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>("d is one!");
+        goto label5;
+
+     label4:
+        $r4 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r4.<java.io.PrintStream: void println(java.lang.String)>("d is > one!");
+
+     label5:
+        i4 = 0;
+
+     label6:
+        if i4 >= 3 goto label7;
+
+        $r5 = <java.lang.System: java.io.PrintStream out>;
+        virtualinvoke $r5.<java.io.PrintStream: void println(java.lang.String)>("Entering for loop!");
+        i4 = i4 + 1;
+        goto label6;
+
+     label7:
+        return 5;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+        Test7_MiscBranches $r1, r2;
+        java.io.PrintStream $r3, $r8;
+        java.lang.StringBuilder $r4, $r5, $r6, $r9, $r10, $r11;
+        int $i0, $i1;
+        java.lang.String $r7, $r12;
+
+        r0 := @parameter0: java.lang.String[];
+        $r1 = new Test7_MiscBranches;
+        specialinvoke $r1.<Test7_MiscBranches: void <init>()>();
+        r2 = $r1;
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+        $r4 = new java.lang.StringBuilder;
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Return value: ");
+        $i0 = virtualinvoke r2.<Test7_MiscBranches: int LiveCode(int)>(23);
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r7);
+        $r8 = <java.lang.System: java.io.PrintStream out>;
+        $r9 = new java.lang.StringBuilder;
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>()>();
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Return value: ");
+        $i1 = virtualinvoke r2.<Test7_MiscBranches: int DeadCode(int)>(5);
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r8.<java.io.PrintStream: void println(java.lang.String)>($r12);
+        return;
+    }
+}

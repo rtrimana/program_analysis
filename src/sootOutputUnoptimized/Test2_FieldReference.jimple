@@ -1,0 +1,58 @@
+public class Test2_FieldReference extends java.lang.Object
+{
+    private int a;
+    private double b;
+
+    public void <init>()
+    {
+        Test2_FieldReference r0;
+
+        r0 := @this: Test2_FieldReference;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+        return;
+    }
+
+    public void LiveCode()
+    {
+        Test2_FieldReference r0;
+        byte b0;
+        int i1, i2, $i3, $i4;
+
+        r0 := @this: Test2_FieldReference;
+        b0 = 5;
+        i1 = b0 + 3;
+        i2 = i1 + 6;
+        $i3 = b0 + i1;
+        $i4 = $i3 + i2;
+        r0.<Test2_FieldReference: int a> = $i4;
+        return;
+    }
+
+    public void DeadCode()
+    {
+        Test2_FieldReference r0;
+        double d0, d1, d2, $d3;
+
+        r0 := @this: Test2_FieldReference;
+        d0 = 1.03;
+        d1 = d0 + 2.06;
+        d2 = d1 - d0;
+        $d3 = d0 + d1;
+        r0.<Test2_FieldReference: double b> = $d3;
+        return;
+    }
+
+    public static transient void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+        Test2_FieldReference $r1, r2;
+
+        r0 := @parameter0: java.lang.String[];
+        $r1 = new Test2_FieldReference;
+        specialinvoke $r1.<Test2_FieldReference: void <init>()>();
+        r2 = $r1;
+        virtualinvoke r2.<Test2_FieldReference: void LiveCode()>();
+        virtualinvoke r2.<Test2_FieldReference: void DeadCode()>();
+        return;
+    }
+}

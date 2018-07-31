@@ -1,0 +1,70 @@
+public class Test1_ReturnStatement extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        Test1_ReturnStatement r0;
+
+        r0 := @this: Test1_ReturnStatement;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+        return;
+    }
+
+    public java.lang.String LiveCode()
+    {
+        Test1_ReturnStatement r0;
+        byte b0;
+        java.lang.String r1, $r4;
+        java.lang.StringBuilder $r2, $r3, $r5, $r6;
+
+        b0 = 3;
+        $r2 = new java.lang.StringBuilder;
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>()>();
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("I have ");
+        $r4 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>(b0);
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" balloons");
+        r1 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+        return r1;
+    }
+
+    public int DeadCode()
+    {
+        Test1_ReturnStatement r0;
+        byte b0;
+        int i1, i2;
+
+        return 1;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+        Test1_ReturnStatement $r1, r2;
+        java.io.PrintStream $r3, $r9;
+        java.lang.StringBuilder $r4, $r5, $r7, $r10, $r11, $r12;
+        java.lang.String $r6, $r8, $r13;
+        int $i0;
+
+        $r1 = new Test1_ReturnStatement;
+        specialinvoke $r1.<Test1_ReturnStatement: void <init>()>();
+        r2 = $r1;
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+        $r4 = new java.lang.StringBuilder;
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test: ");
+        $r6 = virtualinvoke r2.<Test1_ReturnStatement: java.lang.String LiveCode()>();
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r8);
+        $r9 = <java.lang.System: java.io.PrintStream out>;
+        $r10 = new java.lang.StringBuilder;
+        specialinvoke $r10.<java.lang.StringBuilder: void <init>()>();
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test: ");
+        $i0 = virtualinvoke r2.<Test1_ReturnStatement: int DeadCode()>();
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+        $r13 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r9.<java.io.PrintStream: void println(java.lang.String)>($r13);
+        return;
+    }
+}

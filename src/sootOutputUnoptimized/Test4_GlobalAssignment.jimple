@@ -1,0 +1,61 @@
+public class Test4_GlobalAssignment extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        Test4_GlobalAssignment r0;
+
+        r0 := @this: Test4_GlobalAssignment;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+        return;
+    }
+
+    public void LiveCode()
+    {
+        Test4_GlobalAssignment r0;
+        byte b0, b1;
+        int $i2;
+
+        r0 := @this: Test4_GlobalAssignment;
+        b0 = 5;
+        b1 = 4;
+        $i2 = b0 + b1;
+        <GlobalVariable: int globalA> = $i2;
+        return;
+    }
+
+    public java.lang.String DeadCode()
+    {
+        Test4_GlobalAssignment r0;
+        java.lang.String r1, $r2;
+
+        r0 := @this: Test4_GlobalAssignment;
+        r1 = <GlobalVariable: java.lang.String globalB>;
+        $r2 = <GlobalVariable: java.lang.String globalB>;
+        return $r2;
+    }
+
+    public static transient void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+        Test4_GlobalAssignment $r1, r2;
+        java.io.PrintStream $r3;
+        java.lang.StringBuilder $r4, $r5, $r7;
+        java.lang.String $r6, $r8;
+
+        r0 := @parameter0: java.lang.String[];
+        $r1 = new Test4_GlobalAssignment;
+        specialinvoke $r1.<Test4_GlobalAssignment: void <init>()>();
+        r2 = $r1;
+        virtualinvoke r2.<Test4_GlobalAssignment: void LiveCode()>();
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+        $r4 = new java.lang.StringBuilder;
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test: ");
+        $r6 = virtualinvoke r2.<Test4_GlobalAssignment: java.lang.String DeadCode()>();
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r6);
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r8);
+        return;
+    }
+}

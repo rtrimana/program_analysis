@@ -1,0 +1,71 @@
+public class Test3_ArrayReference extends java.lang.Object
+{
+    public int test;
+
+    public void <init>()
+    {
+        Test3_ArrayReference r0;
+
+        r0 := @this: Test3_ArrayReference;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+        return;
+    }
+
+    public void LiveCode()
+    {
+        Test3_ArrayReference r0;
+        byte b0, b1;
+        int[] r1, $r2;
+
+        b0 = 5;
+        b1 = 3;
+        $r2 = newarray (int)[2];
+        $r2[0] = 2;
+        $r2[1] = 3;
+        r1 = $r2;
+        r1[0] = b0;
+        r1[1] = b1;
+        return;
+    }
+
+    public int[] DeadCode()
+    {
+        Test3_ArrayReference r0;
+        int[] r1, $r2;
+        int i0, i1;
+
+        r0 := @this: Test3_ArrayReference;
+        $r2 = newarray (int)[3];
+        $r2[0] = 1;
+        $r2[1] = 2;
+        $r2[2] = 3;
+        r1 = $r2;
+        i0 = r0.<Test3_ArrayReference: int test>;
+        r1[0] = i0;
+        return r1;
+    }
+
+    public static transient void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+        Test3_ArrayReference $r1, r2;
+        java.io.PrintStream $r3;
+        java.lang.StringBuilder $r4, $r5, $r7;
+        int[] $r6;
+        java.lang.String $r8;
+
+        $r1 = new Test3_ArrayReference;
+        specialinvoke $r1.<Test3_ArrayReference: void <init>()>();
+        r2 = $r1;
+        virtualinvoke r2.<Test3_ArrayReference: void LiveCode()>();
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+        $r4 = new java.lang.StringBuilder;
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test: ");
+        $r6 = virtualinvoke r2.<Test3_ArrayReference: int[] DeadCode()>();
+        $r7 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r6);
+        $r8 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r8);
+        return;
+    }
+}

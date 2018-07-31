@@ -1,0 +1,24 @@
+-> local uses: local uses of a stmt 'A' gives us a list of stmts which depend on stmt 'A'
+-> local defs: local defs of stmt'A' and local 'L' gives Latest, most valid definition of a local 'L' in the context of stmt 'A'
+
+-> Anchor: It is a stmt which is one of the following
+    1.Return statements
+    2.function calls
+    3.field asssignments
+    4.array Assignments
+    5.conditional branches
+    6.goto Statements
+    7.Return Void statements
+    
+
+-> LocalUses.getUsesOf(Unit s) this function gives us a java list of all local uses of s 
+
+
+Approach:
+
+    1.  Iterate through every statement of the code and for each statement 
+        a. If it's an anchor statement, analyse backwards and every stmt connected to it is tagged as live
+        b. otherwise tagged as dead
+
+    2.  Once the pass completes, We traverse through the code again and delete all the stmt that are tagged as dead
+        and all field references that have no dependants after deep checking both the LHS and RHS for Locals are also deleted

@@ -1,0 +1,78 @@
+public class Test6_MethodCall extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        Test6_MethodCall r0;
+
+        r0 := @this: Test6_MethodCall;
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+        return;
+    }
+
+    private int TestCall(int)
+    {
+        Test6_MethodCall r0;
+        int i0, $i1;
+
+        i0 := @parameter0: int;
+        $i1 = i0 + 35;
+        return $i1;
+    }
+
+    public int LiveCode()
+    {
+        Test6_MethodCall r0;
+        byte b0;
+        int i1, i2;
+
+        r0 := @this: Test6_MethodCall;
+        b0 = 5;
+        i1 = b0 + 7;
+        i2 = specialinvoke r0.<Test6_MethodCall: int TestCall(int)>(i1);
+        return i2;
+    }
+
+    public int DeadCode()
+    {
+        Test6_MethodCall r0;
+        byte b0;
+        int i1, i2;
+
+        r0 := @this: Test6_MethodCall;
+        b0 = 5;
+        i2 = specialinvoke r0.<Test6_MethodCall: int TestCall(int)>(b0);
+        return i2;
+    }
+
+    public static void main(java.lang.String[])
+    {
+        java.lang.String[] r0;
+        Test6_MethodCall $r1, r2;
+        java.io.PrintStream $r3, $r8;
+        java.lang.StringBuilder $r4, $r5, $r6, $r9, $r10, $r11;
+        int $i0, $i1;
+        java.lang.String $r7, $r12;
+
+        $r1 = new Test6_MethodCall;
+        specialinvoke $r1.<Test6_MethodCall: void <init>()>();
+        r2 = $r1;
+        $r3 = <java.lang.System: java.io.PrintStream out>;
+        $r4 = new java.lang.StringBuilder;
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>()>();
+        $r5 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test: ");
+        $i0 = virtualinvoke r2.<Test6_MethodCall: int LiveCode()>();
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r3.<java.io.PrintStream: void println(java.lang.String)>($r7);
+        $r8 = <java.lang.System: java.io.PrintStream out>;
+        $r9 = new java.lang.StringBuilder;
+        specialinvoke $r9.<java.lang.StringBuilder: void <init>()>();
+        $r10 = virtualinvoke $r9.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("Test: ");
+        $i1 = virtualinvoke r2.<Test6_MethodCall: int DeadCode()>();
+        $r11 = virtualinvoke $r10.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+        virtualinvoke $r8.<java.io.PrintStream: void println(java.lang.String)>($r12);
+        return;
+    }
+}
